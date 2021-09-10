@@ -1,0 +1,32 @@
+<section>
+    <h2>Zarejestruj się w aplikacji</h2>
+    <form class="form" #f="ngForm">
+        <mat-form-field>
+            <mat-label>Imię</mat-label>
+            <input name="name" [(ngModel)]="name" #n="ngModel" required  matInput placeholder="Podaj imię">
+            <mat-error *ngIf="n.dirty && n.hasError('required')">Pole jest wymagane</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Nazwisko</mat-label>
+            <input name="surname" [(ngModel)]="surname" #s="ngModel" required  matInput placeholder="Podaj nazwisko">
+            <mat-error *ngIf="s.dirty && s.hasError('required')">Pole jest wymagane</mat-error>
+          </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Pesel</mat-label>
+            <input name="pesel" maxlength="11" [(ngModel)]="pesel" #p="ngModel" required  matInput placeholder="Podaj pesel">
+            <mat-error *ngIf="p.dirty && p.hasError('required')">Pole jest wymagane</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Kapitał początkowy</mat-label>
+            <input name="money" [(ngModel)]="money" #m="ngModel" required  matInput type="number" placeholder="Podaj kapitał">
+            <mat-error *ngIf="m.dirty && m.hasError('required')">Pole jest wymagane</mat-error>
+        </mat-form-field>
+        <button type="button" (click)="onSubmit(f)" [disabled]="f.invalid" mat-button>Zapisz dane</button>
+    </form>
+    <div class="info" *ngIf="register.length != 0">
+      <p>{{register}}</p>
+    </div>
+  </section>

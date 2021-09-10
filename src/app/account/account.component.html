@@ -1,0 +1,11 @@
+<section>
+<h2>Wybierz użytkownika</h2>
+    <mat-form-field>
+    <mat-label>Konta</mat-label>
+    <select matNativeControl required (change)="change($event)">
+        <option value="" selected></option>
+        <option *ngFor="let user of users" [value]="user.iban">{{user.fullName}}</option>
+    </select>
+    </mat-form-field>
+    <pre class="show">{{account | json }}</pre>
+</section>
