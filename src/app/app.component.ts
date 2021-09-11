@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
   private init(): void {
     this.http.getDist().subscribe(it => {
       this.dist = it;
+      console.log(this.dist);
     });
   }
 }

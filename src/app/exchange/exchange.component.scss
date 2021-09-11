@@ -1,0 +1,31 @@
+* {
+    color: #fff;
+    font-size: 1.1rem;
+    h2 {
+        color: #fff;
+        text-transform: uppercase;
+        &::first-letter {
+            font-size: 2rem;
+        }
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        color: aquamarine;
+        .mat-form-field {
+            width: 60%;
+        } 
+    }
+    button {
+        width: 150px;
+        margin-left: calc(60% - 150px);
+        color: skyblue;
+    }
+    .info {
+        margin-top: 25px;
+        text-align: left;
+        font-size: 1.3rem;
+        color: skyblue;
+        letter-spacing: 1px;
+    }    
+}

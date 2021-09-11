@@ -1,1 +1,39 @@
-<p>exchange works!</p>
+<section>
+    <h2>Wymień walutę</h2>
+    <form class="form" #f="ngForm">
+        <mat-form-field>
+            <mat-label>Waluta bazowa</mat-label>
+            <select matNativeControl required (change)="changeFrom($event)">
+                <option value="" selected></option>
+                <option *ngFor="let cur of currency" [value]="cur">{{cur}}</option>
+            </select>
+            </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Waluta na</mat-label>
+            <select matNativeControl required (change)="changeTo($event)">
+                <option value="" selected></option>
+                <option *ngFor="let cur of currency" [value]="cur">{{cur}}</option>
+            </select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Użytkownik</mat-label>
+            <select matNativeControl required (change)="changePesel($event)">
+                <option value="" selected></option>
+                <option *ngFor="let user of users" [value]="user.pesel">{{user.fullName}}</option>
+            </select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Ile przeliczyć</mat-label>
+            <input name="money" [(ngModel)]="money" #m="ngModel" required  matInput type="number" placeholder="Podaj kapitał">
+            <mat-error *ngIf="m.dirty && m.hasError('required')">Pole jest wymagane</mat-error>
+        </mat-form-field>
+        <button type="button" (click)="onSubmit(f)" [disabled]="f.invalid" mat-button>Wymień</button>
+    </form>
+    <div class="info" *ngIf="info.length != 0">
+        <p>{{info}}</p>
+    </div>
+    <pre *ngIf="exchange != null">{{ exchange | json }}</pre>
+  </section>

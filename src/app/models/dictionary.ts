@@ -38,3 +38,16 @@ export interface Account {
     surname: String,
     user: String
 }
+export interface ExchangeRequest {
+    currencyFrom: String,
+    currencyTo: String,
+    money: number,
+    pesel: String
+}
+export interface ExchangeResponse {
+  currencyFrom: String,
+  currencyTo: String,
+  left: number,
+  rate: number,
+  stay: number
+}

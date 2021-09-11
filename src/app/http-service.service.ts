@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Account, Created, Distionary, Register } from './models/dictionary';
+import { Account, Created, Distionary, ExchangeRequest, ExchangeResponse, Register } from './models/dictionary';
 
 @Injectable({
   providedIn: 'root'
@@ -25,4 +25,11 @@ export class HttpServiceService {
           }  
         });
       }
+      public exchange(exchange:ExchangeRequest) {
+        return this.http.post<ExchangeResponse>("http://localhost:8080/user/exchange",JSON.stringify(exchange),{
+          headers :{ 
+            'content-type': 'application/json'
+          } 
+      });
+    }
 }
